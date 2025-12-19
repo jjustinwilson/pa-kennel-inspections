@@ -5,23 +5,26 @@ Browse kennels, inspections, and violations through a simple web interface.
 """
 
 from flask import Flask, render_template, request, jsonify
-import sqlite3
+import psycopg2
+import psycopg2.extras
+import os
 from pathlib import Path
 
 app = Flask(__name__)
-DB_FILE = "kennel_inspections.db"
+
+# Get database URL from environment variable (provided by Render)
+DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://localhost/pakenneldb')
 
 
 def get_db():
-    """Get database connection with optimizations for low memory."""
-    conn = sqlite3.connect(DB_FILE, check_same_thread=False)
-    conn.row_factory = sqlite3.Row
-    # Memory optimizations for SQLite
-    conn.execute("PRAGMA cache_size = -2000")  # 2MB cache instead of default
-    conn.execute("PRAGMA temp_store = MEMORY")
-    conn.execute("PRAGMA mmap_size = 0")  # Disable memory mapping
-    conn.execute("PRAGMA journal_mode = WAL")
+    """Get PostgreSQL database connection."""
+    conn = psycopg2.connect(DATABASE_URL)
     return conn
+
+
+def dict_cursor(conn):
+    """Get a cursor that returns results as dictionaries."""
+    return conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
 
 @app.route('/')
@@ -47,6 +50,7 @@ def index():
     cursor.execute("SELECT DISTINCT county FROM kennels ORDER BY county")
     counties = [row[0] for row in cursor.fetchall()]
     
+    cursor.close()
     conn.close()
     
     return render_template('index.html',
@@ -81,11 +85,11 @@ def search():
     params = []
     
     if query:
-        sql += " AND (k.name LIKE ? OR k.license_number LIKE ?)"
+        sql += " AND (k.name LIKE %s OR k.license_number LIKE %s)"
         params.extend([f'%{query}%', f'%{query}%'])
     
     if county:
-        sql += " AND k.county = ?"
+        sql += " AND k.county = %s"
         params.append(county)
     
     if violations_only:
@@ -100,6 +104,7 @@ def search():
     cursor.execute(sql, params)
     kennels = [dict(row) for row in cursor.fetchall()]
     
+    cursor.close()
     conn.close()
     
     return render_template('search_results.html', kennels=kennels, query=query)
@@ -113,11 +118,12 @@ def kennel_detail(kennel_id):
     
     # Get kennel info
     cursor.execute("""
-        SELECT * FROM kennels WHERE kennel_id = ?
+        SELECT * FROM kennels WHERE kennel_id = %s
     """, (kennel_id,))
     kennel = dict(cursor.fetchone() or {})
     
     if not kennel:
+        cursor.close()
         conn.close()
         return "Kennel not found", 404
     
@@ -129,7 +135,7 @@ def kennel_detail(kennel_id):
                (SELECT COUNT(*) FROM inspection_items ii 
                 WHERE ii.inspection_id = i.id AND ii.result = 'Satisfactory') as satisfactory_count
         FROM inspections i
-        WHERE i.kennel_id = ?
+        WHERE i.kennel_id = %s
         ORDER BY i.inspection_date DESC
     """, (kennel_id,))
     inspections = [dict(row) for row in cursor.fetchall()]
@@ -139,12 +145,13 @@ def kennel_detail(kennel_id):
         SELECT i.inspection_date, dc.year_type, dc.breeding, dc.boarding, dc.on_prem
         FROM inspections i
         JOIN dog_counts dc ON i.id = dc.inspection_id
-        WHERE i.kennel_id = ? AND dc.year_type = 'current'
+        WHERE i.kennel_id = %s AND dc.year_type = 'current'
         ORDER BY i.inspection_date DESC
         LIMIT 20
     """, (kennel_id,))
     dog_counts = [dict(row) for row in cursor.fetchall()]
     
+    cursor.close()
     conn.close()
     
     return render_template('kennel_detail.html', 
@@ -164,24 +171,25 @@ def inspection_detail(inspection_id):
         SELECT i.*, k.name as kennel_name, k.county, k.license_number
         FROM inspections i
         JOIN kennels k ON i.kennel_id = k.kennel_id
-        WHERE i.id = ?
+        WHERE i.id = %s
     """, (inspection_id,))
     inspection = dict(cursor.fetchone() or {})
     
     if not inspection:
+        cursor.close()
         conn.close()
         return "Inspection not found", 404
     
     # Get dog counts
     cursor.execute("""
-        SELECT * FROM dog_counts WHERE inspection_id = ?
+        SELECT * FROM dog_counts WHERE inspection_id = %s
     """, (inspection_id,))
     dog_counts = {row['year_type']: dict(row) for row in cursor.fetchall()}
     
     # Get inspection items grouped by section
     cursor.execute("""
         SELECT * FROM inspection_items 
-        WHERE inspection_id = ?
+        WHERE inspection_id = %s
         ORDER BY category_section, category_code
     """, (inspection_id,))
     
@@ -193,6 +201,7 @@ def inspection_detail(inspection_id):
             items_by_section[section] = []
         items_by_section[section].append(item)
     
+    cursor.close()
     conn.close()
     
     return render_template('inspection_detail.html',
@@ -234,6 +243,7 @@ def violations():
     
     violation_stats = [dict(row) for row in cursor.fetchall()]
     
+    cursor.close()
     conn.close()
     
     return render_template('violations.html', 
@@ -251,7 +261,7 @@ def kennel_chart_data(kennel_id):
         SELECT i.inspection_date, dc.breeding, dc.boarding, dc.on_prem, dc.transfer
         FROM inspections i
         JOIN dog_counts dc ON i.id = dc.inspection_id
-        WHERE i.kennel_id = ? AND dc.year_type = 'current'
+        WHERE i.kennel_id = %s AND dc.year_type = 'current'
         ORDER BY i.inspection_date
     """, (kennel_id,))
     
@@ -270,6 +280,7 @@ def kennel_chart_data(kennel_id):
         data['on_prem'].append(row['on_prem'])
         data['transfer'].append(row['transfer'])
     
+    cursor.close()
     conn.close()
     
     return jsonify(data)

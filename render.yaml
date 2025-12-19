@@ -1,15 +1,22 @@
+databases:
+  - name: pakenneldb
+    databaseName: pakenneldb
+    user: pakenneldb
+    plan: free
+
 services:
   - type: web
     name: pa-kennel-inspections
     runtime: python
     repo: https://github.com/jjustinwilson/pa-kennel-inspections
+    branch: postgres-migration
     buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
     startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 120 --max-requests 100 --max-requests-jitter 20"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
-    # Free tier includes 750 hours/month
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pakenneldb
+          property: connectionString
     plan: free
-    # Note: SQLite database should be in the repo
-    # Render's free tier has ephemeral storage, so database changes won't persist
-    # between deploys unless you use a persistent disk (paid feature)

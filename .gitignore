@@ -23,9 +23,10 @@ env/
 .DS_Store
 Thumbs.db
 
-# Backup files
-*.bak
+# Database files (using PostgreSQL on Render, not SQLite)
+*.db
 *_FULL.db
+kennel_inspections.db
 kennel_inspections_FULL.db
 
 # Logs
