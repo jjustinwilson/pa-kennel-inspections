@@ -4,7 +4,7 @@ services:
     runtime: python
     repo: https://github.com/jjustinwilson/pa-kennel-inspections
     buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
-    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 120 --max-requests 100 --max-requests-jitter 20"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0

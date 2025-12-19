@@ -13,9 +13,14 @@ DB_FILE = "kennel_inspections.db"
 
 
 def get_db():
-    """Get database connection."""
-    conn = sqlite3.connect(DB_FILE)
+    """Get database connection with optimizations for low memory."""
+    conn = sqlite3.connect(DB_FILE, check_same_thread=False)
     conn.row_factory = sqlite3.Row
+    # Memory optimizations for SQLite
+    conn.execute("PRAGMA cache_size = -2000")  # 2MB cache instead of default
+    conn.execute("PRAGMA temp_store = MEMORY")
+    conn.execute("PRAGMA mmap_size = 0")  # Disable memory mapping
+    conn.execute("PRAGMA journal_mode = WAL")
     return conn
 
 
