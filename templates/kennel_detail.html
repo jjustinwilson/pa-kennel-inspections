@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}{{ kennel.name }} - PA Kennel Inspections{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/">Home</a> / <a href="/search">Kennels</a> / {{ kennel.name }}
+</div>
+
+<div class="kennel-detail-header">
+    <h1>{{ kennel.name }}</h1>
+    <span class="badge {% if kennel.last_status == 'Open' %}badge-success{% else %}badge-danger{% endif %}">
+        {{ kennel.last_status }}
+    </span>
+</div>
+
+<div class="detail-grid">
+    <div class="info-card">
+        <h3>Kennel Information</h3>
+        <dl>
+            <dt>License Number:</dt>
+            <dd>{{ kennel.license_number }}</dd>
+            
+            <dt>Address:</dt>
+            <dd>{{ kennel.address }}<br>
+                {{ kennel.city }}, {{ kennel.state }} {{ kennel.zip_code }}</dd>
+            
+            <dt>County:</dt>
+            <dd>{{ kennel.county }}</dd>
+            
+            <dt>Township:</dt>
+            <dd>{{ kennel.township }}</dd>
+            
+            <dt>License Class:</dt>
+            <dd>{{ kennel.last_license_class }}</dd>
+            
+            <dt>Last License Year:</dt>
+            <dd>{{ kennel.last_issued_license_year }}</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Inspection History ({{ inspections|length }} total)</h2>
+    
+    <div class="inspections-list">
+        {% for inspection in inspections %}
+        <div class="inspection-card">
+            <div class="inspection-header">
+                <h4><a href="/inspection/{{ inspection.id }}">
+                    Inspection: {{ inspection.inspection_date }}
+                </a></h4>
+                <div class="inspection-badges">
+                    {% if inspection.violation_count > 0 %}
+                    <span class="badge badge-danger">{{ inspection.violation_count }} violations</span>
+                    {% else %}
+                    <span class="badge badge-success">No violations</span>
+                    {% endif %}
+                    {% if inspection.reinspection_required %}
+                    <span class="badge badge-warning">Reinspection Required</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="inspection-details">
+                <div><strong>Inspector:</strong> {{ inspection.inspector_name or 'N/A' }}</div>
+                <div><strong>Action:</strong> {{ inspection.inspection_action or 'None' }}</div>
+                <div><strong>License Class:</strong> {{ inspection.license_year_class or 'N/A' }}</div>
+                {% if inspection.person_interviewed %}
+                <div><strong>Person Interviewed:</strong> {{ inspection.person_interviewed }} ({{ inspection.person_title }})</div>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <p class="no-data">No inspection records available yet.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% if dog_counts %}
+<div class="section">
+    <h2>Dog Count Trends</h2>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Breeding</th>
+                <th>Boarding</th>
+                <th>On Premises</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for count in dog_counts %}
+            <tr>
+                <td>{{ count.inspection_date }}</td>
+                <td>{{ count.breeding }}</td>
+                <td>{{ count.boarding }}</td>
+                <td>{{ count.on_prem }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

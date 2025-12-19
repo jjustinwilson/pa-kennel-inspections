@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Violations - PA Kennel Inspections{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Inspection Violations</h1>
+    <p>Unsatisfactory findings from kennel inspections</p>
+</div>
+
+<div class="section">
+    <h2>Violation Statistics</h2>
+    <div class="stats-list">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Total Violations</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in violation_stats %}
+                <tr>
+                    <td>{{ stat.category_name }}</td>
+                    <td><strong>{{ stat.count }}</strong></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Recent Violations (Last 500)</h2>
+    <div class="violations-list">
+        {% for violation in violations %}
+        <div class="violation-card">
+            <div class="violation-header">
+                <h4>
+                    <a href="/kennel/{{ violation.kennel_id }}">{{ violation.kennel_name }}</a>
+                </h4>
+                <span class="violation-date">{{ violation.inspection_date }}</span>
+            </div>
+            <div class="violation-info">
+                <div><strong>County:</strong> {{ violation.county }}</div>
+                <div><strong>License:</strong> {{ violation.license_number }}</div>
+                <div><strong>Action:</strong> {{ violation.inspection_action or 'None' }}</div>
+            </div>
+            <div class="violation-details">
+                <span class="violation-code">{{ violation.category_code }}</span>
+                <span class="violation-category">{{ violation.category_name }}</span>
+                <span class="badge badge-danger">Unsatisfactory</span>
+            </div>
+            <div class="violation-link">
+                <a href="/inspection/{{ violation.inspection_id }}" class="btn btn-sm">View Full Inspection →</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

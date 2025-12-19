@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}PA Kennel Inspections - Home{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Pennsylvania Kennel Inspection Database</h1>
+    <p>Browse inspection reports, violations, and kennel information</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-number">{{ "{:,}".format(total_kennels) }}</div>
+        <div class="stat-label">Kennels</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ "{:,}".format(total_inspections) }}</div>
+        <div class="stat-label">Inspections</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ "{:,}".format(total_violations) }}</div>
+        <div class="stat-label">Violations</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ "{:,}".format(total_reinspections) }}</div>
+        <div class="stat-label">Reinspections Required</div>
+    </div>
+</div>
+
+<div class="search-section">
+    <h2>Search Kennels</h2>
+    <form action="/search" method="get" class="search-form">
+        <input type="text" name="q" placeholder="Search by kennel name or license number..." class="search-input">
+        
+        <select name="county" class="filter-select">
+            <option value="">All Counties</option>
+            {% for county in counties %}
+            <option value="{{ county }}">{{ county }}</option>
+            {% endfor %}
+        </select>
+        
+        <label class="checkbox-label">
+            <input type="checkbox" name="violations" value="true">
+            Show only kennels with violations
+        </label>
+        
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+<div class="quick-links">
+    <h2>Quick Links</h2>
+    <div class="link-grid">
+        <a href="/violations" class="quick-link-card">
+            <h3>🚨 Recent Violations</h3>
+            <p>View all unsatisfactory inspection findings</p>
+        </a>
+        <a href="/search?violations=true" class="quick-link-card">
+            <h3>⚠️ Problem Kennels</h3>
+            <p>Kennels with violation history</p>
+        </a>
+        <a href="/search" class="quick-link-card">
+            <h3>📋 Browse All</h3>
+            <p>View all registered kennels</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

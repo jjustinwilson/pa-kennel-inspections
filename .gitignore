@@ -1,0 +1,35 @@
+# PDFs - Don't commit the inspection PDFs (too large, data is in database)
+kennel_inspections/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*_FULL.db
+kennel_inspections_FULL.db
+
+# Logs
+*.log
+
+# Testing
+test_parser.py

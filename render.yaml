@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: pa-kennel-inspections
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    # Free tier includes 750 hours/month
+    plan: free
+    # Note: SQLite database should be in the repo
+    # Render's free tier has ephemeral storage, so database changes won't persist
+    # between deploys unless you use a persistent disk (paid feature)

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results - PA Kennel Inspections{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Search Results</h1>
+    {% if query %}
+    <p>Showing results for: <strong>{{ query }}</strong></p>
+    {% endif %}
+</div>
+
+<div class="results-count">
+    Found {{ kennels|length }} kennels
+</div>
+
+<div class="kennels-list">
+    {% for kennel in kennels %}
+    <div class="kennel-card">
+        <div class="kennel-header">
+            <h3><a href="/kennel/{{ kennel.kennel_id }}">{{ kennel.name }}</a></h3>
+            <span class="badge {% if kennel.last_status == 'Open' %}badge-success{% else %}badge-danger{% endif %}">
+                {{ kennel.last_status }}
+            </span>
+        </div>
+        <div class="kennel-info">
+            <div><strong>License:</strong> {{ kennel.license_number }}</div>
+            <div><strong>County:</strong> {{ kennel.county }}</div>
+            <div><strong>City:</strong> {{ kennel.city }}</div>
+        </div>
+        <div class="kennel-stats">
+            <span class="stat-badge">{{ kennel.inspection_count }} inspections</span>
+            {% if kennel.violation_count > 0 %}
+            <span class="stat-badge badge-warning">{{ kennel.violation_count }} violations</span>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <div class="no-results">
+        <p>No kennels found matching your criteria.</p>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

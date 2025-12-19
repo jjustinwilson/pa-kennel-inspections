@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Inspection {{ inspection.inspection_date }} - {{ inspection.kennel_name }}{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/">Home</a> / 
+    <a href="/search">Kennels</a> / 
+    <a href="/kennel/{{ inspection.kennel_id }}">{{ inspection.kennel_name }}</a> / 
+    Inspection {{ inspection.inspection_date }}
+</div>
+
+<div class="inspection-detail-header">
+    <h1>Inspection Report</h1>
+    <h2>{{ inspection.kennel_name }} - {{ inspection.inspection_date }}</h2>
+</div>
+
+<div class="detail-grid">
+    <div class="info-card">
+        <h3>Inspection Details</h3>
+        <dl>
+            <dt>Date:</dt>
+            <dd>{{ inspection.inspection_date }}</dd>
+            
+            <dt>Inspector:</dt>
+            <dd>{{ inspection.inspector_name or 'N/A' }}</dd>
+            
+            <dt>Action Taken:</dt>
+            <dd>{{ inspection.inspection_action or 'None' }}</dd>
+            
+            <dt>Person Interviewed:</dt>
+            <dd>{{ inspection.person_interviewed or 'N/A' }}
+                {% if inspection.person_title %}({{ inspection.person_title }}){% endif %}
+            </dd>
+            
+            <dt>License Class:</dt>
+            <dd>{{ inspection.license_year_class or 'N/A' }}</dd>
+            
+            <dt>Reinspection Required:</dt>
+            <dd>
+                {% if inspection.reinspection_required %}
+                <span class="badge badge-warning">Yes</span>
+                {% else %}
+                <span class="badge badge-success">No</span>
+                {% endif %}
+            </dd>
+        </dl>
+    </div>
+
+    <div class="info-card">
+        <h3>Kennel Information</h3>
+        <dl>
+            <dt>Kennel:</dt>
+            <dd><a href="/kennel/{{ inspection.kennel_id }}">{{ inspection.kennel_name }}</a></dd>
+            
+            <dt>License:</dt>
+            <dd>{{ inspection.license_number }}</dd>
+            
+            <dt>County:</dt>
+            <dd>{{ inspection.county }}</dd>
+        </dl>
+    </div>
+</div>
+
+{% if dog_counts %}
+<div class="section">
+    <h3>Dog Counts</h3>
+    <div class="dog-counts-grid">
+        {% if 'current' in dog_counts %}
+        <div class="count-card">
+            <h4>Current Year</h4>
+            <dl class="count-list">
+                <dt>Breeding:</dt><dd>{{ dog_counts['current'].breeding }}</dd>
+                <dt>Boarding:</dt><dd>{{ dog_counts['current'].boarding }}</dd>
+                <dt>Other:</dt><dd>{{ dog_counts['current'].other_count }}</dd>
+                <dt>Transfer:</dt><dd>{{ dog_counts['current'].transfer }}</dd>
+                <dt>On Premises:</dt><dd>{{ dog_counts['current'].on_prem }}</dd>
+                <dt>Off Site:</dt><dd>{{ dog_counts['current'].off_site }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+        
+        {% if 'previous' in dog_counts %}
+        <div class="count-card">
+            <h4>Previous Year</h4>
+            <dl class="count-list">
+                <dt>Breeding:</dt><dd>{{ dog_counts['previous'].breeding }}</dd>
+                <dt>Boarding:</dt><dd>{{ dog_counts['previous'].boarding }}</dd>
+                <dt>Other:</dt><dd>{{ dog_counts['previous'].other_count }}</dd>
+                <dt>Transfer:</dt><dd>{{ dog_counts['previous'].transfer }}</dd>
+                <dt>On Premises:</dt><dd>{{ dog_counts['previous'].on_prem }}</dd>
+                <dt>Off Site:</dt><dd>{{ dog_counts['previous'].off_site }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+<div class="section">
+    <h3>Inspection Findings</h3>
+    
+    {% for section, items in items_by_section.items() %}
+    <div class="findings-section">
+        <h4>{{ section }}</h4>
+        <table class="findings-table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Category</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr class="{% if item.result == 'Unsatisfactory' %}violation-row{% endif %}">
+                    <td class="code-cell">{{ item.category_code }}</td>
+                    <td>{{ item.category_name }}</td>
+                    <td>
+                        <span class="result-badge result-{{ item.result|lower|replace(' ', '-') }}">
+                            {{ item.result }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endfor %}
+</div>
+
+{% if inspection.remarks_text %}
+<div class="section">
+    <h3>Remarks and Notes</h3>
+    <div class="remarks-box">
+        {{ inspection.remarks_text|safe|replace('\n', '<br>')|safe }}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

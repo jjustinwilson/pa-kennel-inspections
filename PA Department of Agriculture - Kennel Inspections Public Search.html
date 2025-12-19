@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PA Department of Agriculture - Kennel Inspections Public Search</title>
+    <script src="http://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+
+    <link href="/PADogLawPublicKennelInspectionSearch/Content/css?v=WMEzVNHl4dmJD-rr0t4kasPHZUnGRBZl1kxH9fSLnQA1" rel="stylesheet"/>
+
+    <script src="/PADogLawPublicKennelInspectionSearch/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+
+    
+    
+    
+    
+</head>
+<body id="top">
+
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <!-- Brand -->
+    <img src="/PADogLawPublicKennelInspectionSearch/Content/images/pagovofficial.png" />&nbsp;&nbsp;&nbsp;
+    <a class="navbar-brand" href="#">Pennsylvania Department of Agriculture</a>
+    <!-- Toggler/collapsibe Button -->
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="nav navbar-nav">
+            
+        </ul>
+    </div>
+    <div class="navbar-nav navbar-right">
+        <a class="nav-link" href="https://www.governor.pa.gov/" target="_blank">JOSH SHAPIRO, GOVERNOR</a> |
+        <a class="nav-link" href="https://www.agriculture.pa.gov/about/executive_office/Pages/Russell-Redding.aspx" target="_blank">RUSSELL C. REDDING, SECRETARY</a>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-sm bg-secondary navbar-light">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">PA Dog Law Kennel Inspections Public Search</a>
+    &nbsp;&nbsp;&nbsp;
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/PADogLawPublicKennelInspectionSearch/" id="navReports">Search</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+    <div class="container body-content">
+        <br />
+        
+<link href="/PADogLawPublicKennelInspectionSearch/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <p>
+                <img src="/PADogLawPublicKennelInspectionSearch/Content/images/logo@2x.png" width="420" />
+            </p>
+        </div>
+        <div class="col-md-7">
+            <h2>Kennel Inspections Search</h2>
+            <p>Please refer to the <a href="https://www.agriculture.pa.gov/Animals/DogLaw/Pages/default.aspx" target="_blank">Bureau of Dog Law Enforcement</a> page and the <a href="https://www.agriculture.pa.gov/Animals/DogLaw/kennel-licensing-inspections/Pages/default.aspx" target="_blank">Kennel Licensing</a> program page for more information.</p>
+            <p align="justify"><strong>DISCLAIMER:</strong> Pursuant to the Pennsylvania Office of Administration, Office of Enterprise Records Management, Records Retention and Disposition Schedule all Kennel Inspection records with an inspection date eight (8) or more years in the past from the current date are to be archived and will no longer appear on the Bureau of Dog Law Enforcement Kennel Inspection Search screen.</p>
+            
+        </div>
+    </div>
+</div>
+
+<form action="/PADogLawPublicKennelInspectionSearch/KennelInspections/Index/SearchForm" method="post">    <div class="form-horizontal" style="border: 1px solid #808080; padding: 8px 4px 4px 16px;">
+        <h4>Search</h4>
+        <div class="form-group">
+            <div class="validation-summary-errors text-danger"><ul><li style="display:none"></li>
+</ul></div>
+            <div class="row">
+                <div class="col-md-4">
+                    County
+                    <select class="form-control" data-val="true" data-val-number="The field County must be a number." data-val-required="The County field is required." id="ddlCounty" name="County"><option value="">Choose...</option>
+<option selected="selected" value="1">ADAMS</option>
+<option value="2">ALLEGHENY</option>
+<option value="3">ARMSTRONG</option>
+<option value="4">BEAVER</option>
+<option value="5">BEDFORD</option>
+<option value="6">BERKS</option>
+<option value="7">BLAIR</option>
+<option value="8">BRADFORD</option>
+<option value="9">BUCKS</option>
+<option value="10">BUTLER</option>
+<option value="11">CAMBRIA</option>
+<option value="12">CAMERON</option>
+<option value="13">CARBON</option>
+<option value="14">CENTRE</option>
+<option value="15">CHESTER</option>
+<option value="16">CLARION</option>
+<option value="17">CLEARFIELD</option>
+<option value="18">CLINTON</option>
+<option value="19">COLUMBIA</option>
+<option value="20">CRAWFORD</option>
+<option value="21">CUMBERLAND</option>
+<option value="22">DAUPHIN</option>
+<option value="23">DELAWARE</option>
+<option value="24">ELK</option>
+<option value="25">ERIE</option>
+<option value="26">FAYETTE</option>
+<option value="27">FOREST</option>
+<option value="28">FRANKLIN</option>
+<option value="29">FULTON</option>
+<option value="30">GREENE</option>
+<option value="31">HUNTINGDON</option>
+<option value="32">INDIANA</option>
+<option value="33">JEFFERSON</option>
+<option value="34">JUNIATA</option>
+<option value="35">LACKAWANNA</option>
+<option value="36">LANCASTER</option>
+<option value="37">LAWRENCE</option>
+<option value="38">LEBANON</option>
+<option value="39">LEHIGH</option>
+<option value="40">LUZERNE</option>
+<option value="41">LYCOMING</option>
+<option value="42">MCKEAN</option>
+<option value="43">MERCER</option>
+<option value="44">MIFFLIN</option>
+<option value="45">MONROE</option>
+<option value="46">MONTGOMERY</option>
+<option value="47">MONTOUR</option>
+<option value="48">NORTHAMPTON</option>
+<option value="49">NORTHUMBERLAND</option>
+<option value="50">PERRY</option>
+<option value="51">PHILADELPHIA</option>
+<option value="52">PIKE</option>
+<option value="53">POTTER</option>
+<option value="54">SCHUYLKILL</option>
+<option value="55">SNYDER</option>
+<option value="56">SOMERSET</option>
+<option value="57">SULLIVAN</option>
+<option value="58">SUSQUEHANNA</option>
+<option value="59">TIOGA</option>
+<option value="60">UNION</option>
+<option value="61">VENANGO</option>
+<option value="62">WARREN</option>
+<option value="63">WASHINGTON</option>
+<option value="64">WAYNE</option>
+<option value="65">WESTMORELAND</option>
+<option value="66">WYOMING</option>
+<option value="67">YORK</option>
+<option value="68">OUT-OF-STATE</option>
+<option value="69">UNKNOWN</option>
+</select>
+                </div>
+                <div class="col-md-4">
+                    Kennel Type
+                    <select class="input-validation-error form-control" data-val="true" data-val-number="The field KennelType must be a number." data-val-required="The KennelType field is required." id="ddlKennelType" name="KennelType"><option value="">Choose...</option>
+<option value="1">KENNEL</option>
+<option value="4">COMMERCIAL KENNEL</option>
+<option value="2">BOARDING KENNEL</option>
+<option value="5">DEALER KENNEL</option>
+<option value="6">OUT-OF-STATE DEALER KENNEL</option>
+<option value="3">NON-PROFIT KENNEL</option>
+<option value="16">HUMANE SOCIETY</option>
+<option value="17">MUNICIPAL HOLDING PEN</option>
+<option value="18">SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS</option>
+<option value="19">SEVICE DOG KENNEL</option>
+</select>
+                </div>
+                <div class="col-md-4">
+                    License Number
+                    <input class="form-control text-box single-line" id="txtLicenseNumber" name="LicenseNumber" type="text" value="" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-4">
+                    Kennel Name
+                    <input class="form-control text-box single-line" id="txtKennelName" name="KennelName" placeholder="Business" type="text" value="" /><br />
+                    Person
+                    <input class="form-control text-box single-line" id="txtKennelPersonLastName" name="KennelPersonLastName" placeholder="Person Last Name" type="text" value="" />&nbsp;
+                    <input class="form-control text-box single-line" id="txtKennelPersonFirstName" name="KennelPersonFirstName" placeholder="Person First Name" type="text" value="" />
+                </div>
+                <div class="col-md-4">
+                    City
+                    <input class="form-control text-box single-line" id="txtCity" name="City" type="text" value="" />
+                </div>
+                <div class="col-md-4">
+                    Zip Code
+                    <input class="form-control text-box single-line" data-val="true" data-val-regex="Zip code is not in the correct format!" data-val-regex-pattern="^(?!00000)[0-9]{5,5}$" id="txtZipCode" name="ZipCode" type="text" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="ZipCode" data-valmsg-replace="true"></span>
+                    
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-6">
+                    
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalSearchHelp">
+                        View Search Help
+                    </button>
+
+                </div>
+                <div class="col-lg-5" style="text-align: right;">
+                    
+                    <a class="btn btn-secondary" href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Index/SearchForm" id="Clearbtn">Clear</a>
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div>
+        <div style="height:100%">
+
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    
+                    <th>License Number</th>
+                    <th>Kennel</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td>1</td>
+                        
+                        <td>
+16461           
+                        </td>
+                        <td>
+Melvin<span>&nbsp;</span>Stoltzfus<br />
+                            140 Robbins Lane<br />
+
+
+                            
+                            
+                            
+                            Biglerville&nbsp;PA&nbsp;17307<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/15313">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        
+                        <td>
+                                01000           
+                        </td>
+                        <td>
+Adams County SPCA<br />
+                            11 Goldenville Road<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/2">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        
+                        <td>
+                                01005           
+                        </td>
+                        <td>
+Atlantic Canine Kennel<br />
+                            8289 Carlisle Pike<br />
+
+
+                            
+                            
+                            
+                            York Springs&nbsp;PA&nbsp;17372<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/3">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        
+                        <td>
+                                01006           
+                        </td>
+                        <td>
+Atlantic Canine Kennel<br />
+                            8289 Carlisle Pike<br />
+
+
+                            
+                            
+                            
+                            York Springs&nbsp;PA&nbsp;17372<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/4">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        
+                        <td>
+18094           
+                        </td>
+                        <td>
+Becky &amp; Jeff Martin<br />
+                            3 N. Pine Street<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17958">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        
+                        <td>
+18081           
+                        </td>
+                        <td>
+Benuel &amp; John King<br />
+                            807 Beecherstown Road<br />
+
+
+                            
+                            
+                            
+                            Biglerville&nbsp;PA&nbsp;17307<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17945">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        
+                        <td>
+                                01007           
+                        </td>
+                        <td>
+Big Hill Kennel<br />
+                            294 Creek Road<br />
+
+
+                            
+                            
+                            
+                            Aspers&nbsp;PA&nbsp;17304<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/5">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        
+                        <td>
+                                04463           
+                        </td>
+                        <td>
+Chateau Barkingham<br />
+                            80 SILO ROAD<br />
+
+
+                            
+                            
+                            
+                            ORRTANNA&nbsp;PA&nbsp;17353<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/3152">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        
+                        <td>
+10482           
+                        </td>
+                        <td>
+Cherry Lane Puppy Haven<br />
+                            385 Sells Station Rd.<br />
+
+
+                            
+                            
+                            
+                            Littlestown&nbsp;PA&nbsp;17340<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/9281">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        
+                        <td>
+                                01008           
+                        </td>
+                        <td>
+Conewago Collies<br />
+                            119 Conewago St<br />
+
+Po Box 369<br />
+
+                            
+                            
+                            
+                            Arendtsville&nbsp;PA&nbsp;17303<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/6">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        
+                        <td>
+17180           
+                        </td>
+                        <td>
+Confederate Woods Animal Hospital<br />
+                            10 Confederate Dr.<br />
+
+
+                            
+                            
+                            
+                            Getttysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17042">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        
+                        <td>
+16125           
+                        </td>
+                        <td>
+Confederate Woods Veterinary Hospital Inc.<br />
+                            10 Confederate Drive<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/14975">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        
+                        <td>
+17129           
+                        </td>
+                        <td>
+Copper Cabin Kennel<br />
+                            177 Red Bridge Road<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/15992">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        
+                        <td>
+                                01010           
+                        </td>
+                        <td>
+Copper Cabin Kennels<br />
+                            177 Red Bridge Road<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/8">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        
+                        <td>
+                                05069           
+                        </td>
+                        <td>
+Cozy Canine LLC<br />
+                            2575 Tract Rd<br />
+
+
+                            
+                            
+                            
+                            Fairfield&nbsp;PA&nbsp;17320<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/3754">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        
+                        <td>
+17284           
+                        </td>
+                        <td>
+Double Dog Dare Rescue<br />
+                            Di Warren<br />
+
+190 N. Main Street<br />
+
+                            
+                            
+                            
+                            Aspers&nbsp;PA&nbsp;17304<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17146">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        
+                        <td>
+                                04836           
+                        </td>
+                        <td>
+Dream on Acres Boarding Kennel<br />
+                            326 Shrivers Corner Rd<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;173258187<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/3515">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        
+                        <td>
+18595           
+                        </td>
+                        <td>
+FarmHouse Kennel<br />
+                            1715 Waynesboro Pike<br />
+
+
+                            
+                            
+                            
+                            Fairfield&nbsp;PA&nbsp;17320<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/18460">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        
+                        <td>
+16705           
+                        </td>
+                        <td>
+For the Love of Dogs Rescue<br />
+                            1400 Irishtown Road<br />
+
+
+                            
+                            
+                            
+                            New Oxford&nbsp;PA&nbsp;17350<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/15561">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        
+                        <td>
+17392           
+                        </td>
+                        <td>
+For The Love Of Dogs rescue/Tiffany Holladay<br />
+                            102 Willow Street<br />
+
+
+                            
+                            
+                            
+                            York Springs&nbsp;PA&nbsp;17372<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17254">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        
+                        <td>
+18733           
+                        </td>
+                        <td>
+Furbabies Daycare and Boarding<br />
+                            6281 York Road<br />
+
+
+                            
+                            
+                            
+                            New Oxford&nbsp;PA&nbsp;17350<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/18599">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        
+                        <td>
+17012           
+                        </td>
+                        <td>
+Garretson&#39;s Kennel<br />
+                            70 Crooked Creek Road<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/15873">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        
+                        <td>
+18117           
+                        </td>
+                        <td>
+Gettysburg Animal Hospital Inc.<br />
+                            996 Old Harrisburg Road<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17981">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        
+                        <td>
+                                05206           
+                        </td>
+                        <td>
+Gettysburg Animal Hospital, Inc.<br />
+                            996 Old Harrisburg Rd<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/3891">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        
+                        <td>
+17691           
+                        </td>
+                        <td>
+Golden Acres LLC<br />
+                            3225 Old Harrisburg Rd.<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17555">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        
+                        <td>
+18439           
+                        </td>
+                        <td>
+Golden Wood Tract Road LLC<br />
+                            2617 Tract Road<br />
+
+
+                            
+                            
+                            
+                            Fairfield&nbsp;PA&nbsp;17320<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/18304">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        
+                        <td>
+                                01014           
+                        </td>
+                        <td>
+Hanover Borough Holding Pen<br />
+                            300 O&#39;Brien Lane<br />
+
+
+                            
+                            
+                            
+                            McSherrystown&nbsp;PA&nbsp;17344<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/12">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        
+                        <td>
+17350           
+                        </td>
+                        <td>
+Happy Hounds Homeward Bound<br />
+                            658 Old Westminster Rd.<br />
+
+
+                            
+                            
+                            
+                            Hanover&nbsp;PA&nbsp;17331<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Application/License Refused</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17212">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        
+                        <td>
+                                01017           
+                        </td>
+                        <td>
+Hidden Meadows Kennel<br />
+                            40 Wenschoff Road<br />
+
+
+                            
+                            
+                            
+                            Fairfield&nbsp;PA&nbsp;17320<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/14">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        
+                        <td>
+16576           
+                        </td>
+                        <td>
+Holsinger<br />
+                            1525 Upper Bermudian Road<br />
+
+
+                            
+                            
+                            
+                            Gardners&nbsp;PA&nbsp;17324<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/15431">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        
+                        <td>
+                                01018           
+                        </td>
+                        <td>
+Horse N&#39; Hound Haven Kennel<br />
+                            1385 Hunterstown Hampton Road<br />
+
+
+                            
+                            
+                            
+                            New Oxford&nbsp;PA&nbsp;17350<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/15">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        
+                        <td>
+17449           
+                        </td>
+                        <td>
+J &amp; T Frenchie Palacio<br />
+                            5475 Carlisle Pike<br />
+
+
+                            
+                            
+                            
+                            New Oxford&nbsp;PA&nbsp;17350<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17311">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        
+                        <td>
+                                08599           
+                        </td>
+                        <td>
+Jambolou Dobermans<br />
+                            44 Lime Rock Mill Rd<br />
+
+
+                            
+                            
+                            
+                            Gardners&nbsp;PA&nbsp;17324<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/7382">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        
+                        <td>
+                                03693           
+                        </td>
+                        <td>
+Kirton Kennel<br />
+                            883 Abbottstown Pike<br />
+
+
+                            
+                            
+                            
+                            Hanover&nbsp;PA&nbsp;17331<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/2477">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        
+                        <td>
+                                01022           
+                        </td>
+                        <td>
+Littlestown Borough Holding Pen<br />
+                            2136 White Hall Rd<br />
+
+
+                            
+                            
+                            
+                            Littlestown&nbsp;PA&nbsp;17340<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/19">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        
+                        <td>
+                                01025           
+                        </td>
+                        <td>
+McSherrystown Borough Holding Pen<br />
+                            Oak Lane  (Old Sewer Plant Road)<br />
+
+
+                            
+                            
+                            
+                            McSherrystown&nbsp;PA&nbsp;17344<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/22">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        
+                        <td>
+17460           
+                        </td>
+                        <td>
+Melissa Strine<br />
+                            475 Barts Church Rd.<br />
+
+
+                            
+                            
+                            
+                            Hanover&nbsp;PA&nbsp;17331<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17322">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        
+                        <td>
+17931           
+                        </td>
+                        <td>
+Melodious Ridge Kennel<br />
+                            586 Irishtown Road<br />
+
+
+                            
+                            
+                            
+                            New Oxford&nbsp;PA&nbsp;17530<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17795">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        
+                        <td>
+10656           
+                        </td>
+                        <td>
+Missions of Mercy Rescue<br />
+                            576 Narrow Drive<br />
+
+
+                            
+                            
+                            
+                            Hanover&nbsp;PA&nbsp;17331<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/9456">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        
+                        <td>
+                                01027           
+                        </td>
+                        <td>
+Musselman&#39;s Pet Paradise Inc<br />
+                            2265 Upper Bermudian Road<br />
+
+
+                            
+                            
+                            
+                            Gardners&nbsp;PA&nbsp;17324<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/24">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        
+                        <td>
+16067           
+                        </td>
+                        <td>
+Operation Paws For Homes<br />
+                            60 Derby Dr<br />
+
+
+                            
+                            
+                            
+                            Hanover&nbsp;PA&nbsp;17331<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/14917">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        
+                        <td>
+18365           
+                        </td>
+                        <td>
+Operation Paws for Homes - Amber McClellan<br />
+                            11 Crescent Lanr<br />
+
+
+                            
+                            
+                            
+                            Littlestown&nbsp;PA&nbsp;17340<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/18230">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        
+                        <td>
+                                09736           
+                        </td>
+                        <td>
+PA Caring for K-9&#39;s Inc<br />
+                            910 J Hanover St<br />
+
+
+                            
+                            
+                            
+                            New Oxford&nbsp;PA&nbsp;17350<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/8528">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        
+                        <td>
+17567           
+                        </td>
+                        <td>
+PA&#39;s Darling Doxies LLC<br />
+                            181 Baker Road<br />
+
+
+                            
+                            
+                            
+                            Fayetteville&nbsp;PA&nbsp;17222<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17431">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        
+                        <td>
+16736           
+                        </td>
+                        <td>
+Pet Valu 5130<br />
+                            44 Natural Springs Rd.<br />
+
+Unit 40<br />
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/15592">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        
+                        <td>
+18539           
+                        </td>
+                        <td>
+Ranger and Rocky&#39;s K9 Rescue<br />
+                            213 Longstreet Drive<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/18404">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        
+                        <td>
+18082           
+                        </td>
+                        <td>
+Rebel Ridge Farm<br />
+                            370 Harney Road<br />
+
+
+                            
+                            
+                            
+                            Littlestown&nbsp;PA&nbsp;17340<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17946">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        
+                        <td>
+16672           
+                        </td>
+                        <td>
+Shagbark Hunt<br />
+                            2450 Fairfield Road<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Enforcement Related</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/15528">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>49</td>
+                        
+                        <td>
+17805           
+                        </td>
+                        <td>
+Shashoni Farms<br />
+                            2019 Ridge Road<br />
+
+
+                            
+                            
+                            
+                            Gettysburg&nbsp;PA&nbsp;17325<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17669">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        
+                        <td>
+13153           
+                        </td>
+                        <td>
+Tarameg Goldens<br />
+                            820 Littlestown Road<br />
+
+
+                            
+                            
+                            
+                            Littlestown&nbsp;PA&nbsp;17340<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/11973">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>51</td>
+                        
+                        <td>
+17216           
+                        </td>
+                        <td>
+The Pink Dog Animal Rescue<br />
+                            830 Pine Grove Road<br />
+
+
+                            
+                            
+                            
+                            Hanover&nbsp;PA&nbsp;17331<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17078">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>52</td>
+                        
+                        <td>
+17814           
+                        </td>
+                        <td>
+Tom  and Sandra Rolenaitis<br />
+                            1330 Bull Valley Road<br />
+
+
+                            
+                            
+                            
+                            Aspers&nbsp;PA&nbsp;17304<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17678">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>53</td>
+                        
+                        <td>
+17864           
+                        </td>
+                        <td>
+Tom and Pam Miller<br />
+                            52 Straleys Road<br />
+
+
+                            
+                            
+                            
+                            Littlestown&nbsp;PA&nbsp;17340<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Closed - Voluntarily</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17728">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>54</td>
+                        
+                        <td>
+17528           
+                        </td>
+                        <td>
+Valley Run Kennel<br />
+                            586 Irishtown Rd<br />
+
+
+                            
+                            
+                            
+                            New Oxford&nbsp;PA&nbsp;17350<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/17392">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>55</td>
+                        
+                        <td>
+18474           
+                        </td>
+                        <td>
+WeBe Bullies<br />
+                            4520 Oxford Road<br />
+
+
+                            
+                            
+                            
+                            York Springs&nbsp;PA&nbsp;17372<br />
+                            County: ADAMS<br />
+                        </td>
+                        
+
+                        <td>Open</td>
+                        <td><a href="/PADogLawPublicKennelInspectionSearch/KennelInspections/Details/18339">Details</a></td>
+                    </tr>
+
+            </table>
+
+            
+            <p id="back-top">
+                <a href="#top"><span></span>Back to Top</a>
+            </p>
+
+        </div>
+
+    </div>
+</form>
+<div id="modalSearchHelp" class="modal fade" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="lblTitle" class="modal-title">Search Help</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <strong>Kennel Inspection Search Instructions</strong><br /><br />
+                    The Pennsylvania Kennels licensed with the Dog Law Enforcement Office can be searched from this web page.<br /><br />
+                    The following information contains the details of the searching functionality available:<br />
+                    <ul>
+                        <li>County: Search based on the kennel county.</li>
+                        <li>Kennel Type: Search based on the kennel type.</li>
+                        <li>License Number: Search based on kennel license number.</li>
+                        <li>Kennel (Business) Name: Search based on kennel business name.</li>
+                        <li>City: Search based on the kennel city.</li>
+                        <li>Zip code: Search based on the kennel zip code.</li>
+                    </ul>
+                    Searches are not case sensitive.<br />
+                    <br />
+                    <strong>NOTE:</strong> Kennel inspections are available in Adobe's PDF format for viewing and printing. <br />
+                    Download <a href="https://www.adobe.com/" target="_blank">Adobe's free Acrobat reader</a><br />
+                    <br/>
+                    <strong>DISCLAIMER:</strong> Pursuant to the Pennsylvania Office of Administration, Office of Enterprise Records Management, Records Retention and Disposition Schedule all Kennel Inspection records with an inspection date eight (8) or more years in the past from the current date are to be archived and will no longer appear on the Bureau of Dog Law Enforcement Kennel Inspection Search screen.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCancel" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+        <hr />
+        <footer>
+            <a href="https://www.pa.gov/privacy-policy/" target="_blank" class="btn-link">Privacy Policy</a>&nbsp;|&nbsp;<a href="https://www.pa.gov/security-policy/" target="_blank" class="btn-link">Security Policy</a><br />
+            <p>&copy; 2025 - Pennsylvania Department of Agriculture. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="/PADogLawPublicKennelInspectionSearch/bundles/jquery?v=rD9yxcIfC-_zwpaJ_9UPbUY1Niam5dFE8OFiugxkBeM1"></script>
+
+    <script src="/PADogLawPublicKennelInspectionSearch/bundles/bootstrap?v=KshKyEUCKzVIHi1m_JFg7UB54ts1B2e_i_7rtk7CHXo1"></script>
+
+    
+
+    <script src="/PADogLawPublicKennelInspectionSearch/bundles/jqueryval?v="></script>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // hide #back-top first
+            $("#back-top").hide();
+
+            // fade in #back-top
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('#back-top').fadeIn();
+                    } else {
+                        $('#back-top').fadeOut();
+                    }
+                });
+                // scroll body to 0px on click
+                $('#back-top a').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+
+        });
+    </script>
+
+
+    
+
+    
+    
+
+    <script type="text/javascript">
+
+        //
+        //$("#viewSearchHelp").click(function (evt) {
+        //    $('#modalSearchHelp').modal('show');
+        //});
+
+
+    $("#btnClear").click(function () {
+        $("#ddlCounty").val(1);
+        $("#ddlKennelType").val(1);
+        $("#txtLicenseNumber").val("");
+        $("#txtKennelName").val("");
+        $("#txtCity").val("");
+        $("#txtZipCode").val("");
+    });
+
+
+</script>
+
+
+
+</body>
+</html>
